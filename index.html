@@ -5,6 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Ajarkan Aku...</title>
 		<script src="vara.min.js"></script>
+		<script>
+			const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+	
+			function requestAudioPermission() {
+				const oscillator = audioContext.createOscillator();
+				oscillator.connect(audioContext.destination);
+				oscillator.start();
+				oscillator.stop(audioContext.currentTime + 0.1);
+			}
+			requestAudioPermission();
+		</script>
 		<style>
 			* {
 				padding: 0;
